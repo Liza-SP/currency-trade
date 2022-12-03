@@ -17,9 +17,14 @@ export default function ModalCard({
   // добавление заявки от пользователя
   const requestHandler = () => {
     const currentRate = rate[currency];
-    dispatch(addRequest({
-      side, price: currentRate[side], instrument: currency, volume: input, timestamp: new Date(),
-    }));
+    const request = {
+      side, price: currentRate[side], instrument: currency, volume: input, timestamp: JSON.stringify(new Date().toLocaleString()),
+    };
+    dispatch(addRequest(request));
+    // добавление в sessionStorage для сохранения при перезагрузке
+    const requests = JSON.parse(sessionStorage.getItem('requests')) || [];
+    requests?.push(request);
+    sessionStorage.setItem('requests', JSON.stringify(requests));
     // закрытие модалки
     setActive(!active);
     // обнуление цели заявки

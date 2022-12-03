@@ -9,4 +9,5 @@ export default configureStore({
     currency: currencyReducer,
     rate: rateReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

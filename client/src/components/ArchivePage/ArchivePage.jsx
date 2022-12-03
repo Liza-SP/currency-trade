@@ -16,12 +16,12 @@ export default function ArchivePage() {
       </thead>
       <tbody>
         {requests?.map((request) => (
-          <tr>
+          <tr key={Math.random()}>
             <th>{request?.side?.toUpperCase()}</th>
             <td>{request?.price}</td>
             <td>{request?.instrument}</td>
             <td>{request?.volume}</td>
-            <td>{request?.timestamp?.toLocaleString()}</td>
+            <td>{JSON.parse(request?.timestamp)}</td>
           </tr>
         ))}
       </tbody>
