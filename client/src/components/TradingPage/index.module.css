@@ -1,0 +1,11 @@
+.buttons, .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5em;
+}
+
+.time {
+  margin-top: 3em;
+  font-size: 30px;
+}

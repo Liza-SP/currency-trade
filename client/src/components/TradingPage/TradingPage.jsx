@@ -4,9 +4,9 @@ import CurrentTime from './CurrentTime';
 
 export default function TradingPage() {
   return (
-    <>
+    <div>
       <CurrentTime />
       <Currency />
-    </>
+    </div>
   );
 }

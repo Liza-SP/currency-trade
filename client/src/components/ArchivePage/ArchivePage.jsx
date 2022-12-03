@@ -7,7 +7,7 @@ export default function ArchivePage() {
   return (
     <>
       <div>table</div>
-      <div>{request}</div>
+      <div>{request.side}</div>
     </>
   );
 }
