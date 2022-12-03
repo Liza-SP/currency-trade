@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addRequest } from '../../../redux/reducers/requestsReducer';
 
@@ -9,6 +9,7 @@ export default function ModalCard({
   active, setActive, setSide, side,
 }) {
   const dispatch = useDispatch();
+  const [input, setInput] = useState('');
   const volumeRef = useRef();
   // выбранная валюта
   const currency = useSelector((s) => s.currency);
@@ -24,6 +25,8 @@ export default function ModalCard({
     setActive(!active);
     // обнуление цели заявки
     setSide('');
+    setInput('');
+    // volumeRef.current.value = '';
   };
   return (
     <div className={active ? 'modal is-active' : 'modal'}>
@@ -41,7 +44,7 @@ export default function ModalCard({
                 <div className="field">
                   <label className="label">Volume</label>
                   <div className="control">
-                    <input className="input" type="text" ref={volumeRef} />
+                    <input value={input} name="input" onChange={(e) => setInput(e.target.value)} className="input" type="text" ref={volumeRef} />
                   </div>
                 </div>
               </>
@@ -56,7 +59,7 @@ export default function ModalCard({
             </div>
             {currency !== 'Choose currency' && (
               <div className="control">
-                <button type="button" onClick={requestHandler} className="button is-primary">OK</button>
+                <button type="button" onClick={(e) => requestHandler(e)} className="button is-primary">OK</button>
               </div>
             )}
           </div>
