@@ -3,9 +3,6 @@ import { useSelector } from 'react-redux';
 
 export default function ArchivePage() {
   const requests = useSelector((s) => s.requests);
-  // const requests = {
-  //   side: 'SELL', price: '1.75', instrument: 'USD/CAN_TOM', volume: '7590', timestamp: new Date(),
-  // };
   return (
     <table className="table">
       <thead>

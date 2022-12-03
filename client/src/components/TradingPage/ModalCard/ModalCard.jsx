@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addRequest } from '../../../redux/reducers/requestsReducer';
 
@@ -10,7 +10,6 @@ export default function ModalCard({
 }) {
   const dispatch = useDispatch();
   const [input, setInput] = useState('');
-  const volumeRef = useRef();
   // выбранная валюта
   const currency = useSelector((s) => s.currency);
   // рандомно взятый курс
@@ -19,14 +18,13 @@ export default function ModalCard({
   const requestHandler = () => {
     const currentRate = rate[currency];
     dispatch(addRequest({
-      side, price: currentRate[side], instrument: currency, volume: volumeRef.current.value, timestamp: new Date(),
+      side, price: currentRate[side], instrument: currency, volume: input, timestamp: new Date(),
     }));
     // закрытие модалки
     setActive(!active);
     // обнуление цели заявки
     setSide('');
     setInput('');
-    // volumeRef.current.value = '';
   };
   return (
     <div className={active ? 'modal is-active' : 'modal'}>
@@ -44,7 +42,7 @@ export default function ModalCard({
                 <div className="field">
                   <label className="label">Volume</label>
                   <div className="control">
-                    <input value={input} name="input" onChange={(e) => setInput(e.target.value)} className="input" type="text" ref={volumeRef} />
+                    <input value={input} name="input" onChange={(e) => setInput(e.target.value)} className="input" type="text" />
                   </div>
                 </div>
               </>

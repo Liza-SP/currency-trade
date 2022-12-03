@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNewRate } from '../../redux/reducers/rateReducer';
 import CurrencyDropDown from './CurrencyDropDown';
 import styles from './index.module.css';
 import ModalCard from './ModalCard/ModalCard';
 
 export default function Currency() {
   const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
   // цель заявки - купить или продать валюту
   const [side, setSide] = useState('');
   // выбранная валюта
   const currency = useSelector((s) => s.currency);
   // рандомно взятый курс
   const rate = useSelector((s) => s.rate);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // console.log('This will be called every 2 seconds');
+      // имитация смены валюты (раз в минуту)
+      dispatch(setNewRate());
+    }, 1000 * 60);
+    // очистить таймер при размантировании компонента
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
