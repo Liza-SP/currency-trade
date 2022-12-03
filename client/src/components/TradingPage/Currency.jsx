@@ -17,7 +17,6 @@ export default function Currency() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // console.log('This will be called every 2 seconds');
       // имитация смены валюты (раз в минуту)
       dispatch(setNewRate());
     }, 1000 * 60);
@@ -31,11 +30,11 @@ export default function Currency() {
       <div className={styles.buttons}>
         <div className={styles.oneBtn}>
           <button type="button" className="button is-success is-light" onClick={() => { setActive(!active); setSide('buy'); }}>BUY</button>
-          <div>{rate[currency]?.buy}</div>
+          <div className={styles.buy}>{rate[currency]?.buy}</div>
         </div>
         <div>
           <button type="button" className="button is-danger is-light" onClick={() => { setActive(!active); setSide('sell'); }}>SELL</button>
-          <div>{rate[currency]?.sell}</div>
+          <div className={styles.sell}>{rate[currency]?.sell}</div>
         </div>
       </div>
       {/* Модальное окно */}

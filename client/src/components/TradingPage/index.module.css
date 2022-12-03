@@ -14,3 +14,13 @@
   font-size: 50px;
   margin-bottom: 3em;
 }
+
+.sell {
+  color: rgb(181, 9, 9);
+  font-size: 30px;
+}
+
+.buy {
+  color: rgb(12, 116, 12);
+  font-size: 30px;
+}
