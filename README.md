@@ -18,7 +18,7 @@
 Цены генерируются случайным образом раз в минуту.
 <br/>
 <br/>
-<img width="939" alt="currency" src="https://user-images.githubusercontent.com/119666136/205566175-8c7d656e-f56a-44b1-a5b2-be6be5a8b754.png">
+<img width="666" alt="currency" src="https://user-images.githubusercontent.com/119666136/205566175-8c7d656e-f56a-44b1-a5b2-be6be5a8b754.png">
 <br/>
 <br/>
  При клике на кнопку появляется модальное окно, на котором отображается:
