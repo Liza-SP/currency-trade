@@ -17,7 +17,7 @@ export default function ArchivePage() {
       <tbody>
         {requests?.map((request) => (
           <tr key={Math.random()}>
-            <th>{request?.side?.toUpperCase()}</th>
+            <th style={{ color: request?.side === 'buy' ? 'green' : 'red' }}>{request?.side?.toUpperCase()}</th>
             <td>{request?.price}</td>
             <td>{request?.instrument}</td>
             <td>{request?.volume}</td>

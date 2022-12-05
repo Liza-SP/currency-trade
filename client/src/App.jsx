@@ -12,7 +12,7 @@ function App() {
   // при перезагрузки страницы достаем данные из хранилища (в пределах одной вкладки)
   useEffect(() => {
     // запрос к sessionStorage
-    const requests = JSON.parse(sessionStorage.getItem('requests'));
+    const requests = JSON.parse(sessionStorage.getItem('requests')) || [];
     // сохраняем данные о заявках в редакс
     dispatch(setRequests(requests));
   }, []);
